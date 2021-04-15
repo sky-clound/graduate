@@ -1,13 +1,20 @@
 import styles from './index.css';
-import Link from 'umi/link';
+// import Link from 'umi/link';
+import { Layout } from 'antd';
+import { ReactComponent as Logo } from '../assets/logo-octocat.svg';
+import Login from 'components/Login';
+
+const { Header, Content } = Layout;
 
 function BasicLayout(props) {
   return (
-    <div className={styles.normal}>
-      <Link to= 'test2'>前往test2</Link>
-      <h1 className={styles.title}>Yay! Welcome to umi!</h1>
-      {props.children}
-    </div>
+    <Layout>
+      <Header className={styles.header}>
+        <Logo className={styles.logo}></Logo>
+        <Login></Login>
+      </Header>
+      <Content>{props.children}</Content>
+    </Layout>
   );
 }
 
